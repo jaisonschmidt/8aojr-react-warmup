@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 
 export function App(){
   const [tasks, setTasks] = useState([]);
 
-  const handleTasks = () => {
+  useEffect(() => {
     // fazer uma chamada para uma api
     // receber os dados
     // alterar o valor de tasks
+    console.log("Carregou o componente App");
+    return () => console.log("Componente foi destruido")
+  }, []);
+
+  const handleTasks = () => {
     setTasks([
       { id: 1, title: "Tarefa 01" },
       { id: 2, title: "Tarefa 02" },
